@@ -2,10 +2,8 @@
 
 import { useState, useEffect, useCallback, memo } from 'react';
 import Link from 'next/link';
-import { ShoppingCart, Menu, X, Search } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCart } from '@/components/CartProvider';
-import { CartSheet } from '@/components/CartSheet';
 
 // Debounce function to limit how often a function can be called
 const debounce = (func: Function, wait: number) => {
@@ -23,9 +21,7 @@ const debounce = (func: Function, wait: number) => {
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const { state } = useCart();
 
   // Memoize scroll handler
   const handleScroll = useCallback(
@@ -72,11 +68,11 @@ const Header = () => {
   }, [smoothScrollTo]);
 
   const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#categories', label: 'Categories' },
-    { href: '#products', label: 'Products' },
-    { onClick: scrollToNewsletter, label: 'Contact' },
-    { onClick: scrollToFooter, label: 'About' },
+    { href: '#home', label: 'الرئيسية' },
+    { href: '#categories', label: 'الفئات' },
+    { href: '#products', label: 'المنتجات' },
+    { onClick: scrollToNewsletter, label: 'تواصل معنا' },
+    { onClick: scrollToFooter, label: 'من نحن' },
   ];
 
   return (
@@ -97,55 +93,42 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2 group">
+            <Link href="/" className="flex items-center group order-1">
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
                 <span className="text-white font-bold text-xl">V</span>
               </div>
-              <span className="text-2xl font-bold text-gradient font-playfair">ValuePlast</span>
+              <span className="text-2xl font-bold text-gradient font-playfair hidden md:block mr-0.5">ValuePlast</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                item.href ? (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="text-gray-700 hover:text-blue-600 transition-colors font-medium relative group"
-                  >
-                    {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full" />
-                  </Link>
-                ) : (
-                  <button
-                    key={item.label}
-                    onClick={item.onClick}
-                    className="text-gray-700 hover:text-blue-600 transition-colors font-medium relative group"
-                  >
-                    {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full" />
-                  </button>
-                )
+            <nav className="hidden md:flex items-center order-2">
+              {navItems.map((item, index) => (
+                <div key={item.label} className={`${index === 0 ? 'mr-12' : index === 1 ? 'mr-8' : 'mr-8'}`}>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="text-gray-700 hover:text-blue-600 transition-colors font-medium relative group"
+                    >
+                      {item.label}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full" />
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={item.onClick}
+                      className="text-gray-700 hover:text-blue-600 transition-colors font-medium relative group"
+                    >
+                      {item.label}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full" />
+                    </button>
+                  )}
+                </div>
               ))}
             </nav>
 
             {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4 order-3">
               <Button variant="ghost" size="icon" className="relative">
                 <Search className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="relative"
-                onClick={() => setIsCartOpen(true)}
-              >
-                <ShoppingCart className="h-5 w-5" />
-                {state.itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-pulse">
-                    {state.itemCount}
-                  </span>
-                )}
               </Button>
             </div>
 
@@ -153,7 +136,7 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden order-3"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -189,29 +172,12 @@ const Header = () => {
                 <Button variant="ghost" size="icon">
                   <Search className="h-5 w-5" />
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="relative"
-                  onClick={() => {
-                    setIsCartOpen(true);
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  {state.itemCount > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                      {state.itemCount}
-                    </span>
-                  )}
-                </Button>
               </div>
             </nav>
           </div>
         )}
       </header>
 
-      <CartSheet isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </>
   );
 };

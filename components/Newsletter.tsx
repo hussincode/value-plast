@@ -24,10 +24,10 @@ const Newsletter = () => {
     
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      toast.success('Thank you for subscribing! Check your email for your discount code.');
+      toast.success('شكراً لك على الاشتراك! تحقق من بريدك الإلكتروني للحصول على كود الخصم.');
       setEmail('');
     } catch (error) {
-      toast.error('Something went wrong. Please try again.');
+      toast.error('حدث خطأ ما. يرجى المحاولة مرة أخرى.');
     } finally {
       setIsLoading(false);
     }
@@ -58,11 +58,11 @@ const Newsletter = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-playfair">
-            Stay Updated with ValuePlast
+            ابق على اطلاع مع فاليوبلاست
           </h2>
           
           <p className="text-base md:text-lg lg:text-xl mb-8 opacity-90 max-w-2xl mx-auto px-4">
-            Subscribe to our newsletter and get 15% off your first order plus exclusive access to new products and special offers.
+            اشترك في نشرتنا الإخبارية واحصل على خصم 15% على طلبك الأول بالإضافة إلى وصول حصري للمنتجات الجديدة والعروض الخاصة.
           </p>
 
           <motion.form
@@ -74,7 +74,7 @@ const Newsletter = () => {
           >
             <Input
               type="email"
-              placeholder="Enter your email address"
+              placeholder="أدخل عنوان بريدك الإلكتروني"
               value={email}
               onChange={handleEmailChange}
               className="bg-white/10 border-white/30 text-white placeholder:text-white/70 flex-1 h-12 text-base"
@@ -88,7 +88,7 @@ const Newsletter = () => {
               className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-6 md:px-8 h-12 text-base whitespace-nowrap"
               aria-label={isLoading ? 'Subscribing...' : 'Subscribe to newsletter'}
             >
-              {isLoading ? 'Subscribing...' : 'Subscribe'}
+              {isLoading ? 'جاري الاشتراك...' : 'اشتراك'}
             </Button>
           </motion.form>
 
@@ -100,12 +100,12 @@ const Newsletter = () => {
           >
             <div className="flex items-center gap-2">
               <Gift className="h-5 w-5" />
-              <span>15% off your first order</span>
+              <span>خصم 15% على طلبك الأول</span>
             </div>
             <span className="hidden sm:inline">•</span>
-            <span>Free shipping on orders over $50</span>
+            <span>شحن مجاني للطلبات فوق 50$</span>
             <span className="hidden sm:inline">•</span>
-            <span>Exclusive deals</span>
+            <span>عروض حصرية</span>
           </motion.div>
         </motion.div>
       </div>

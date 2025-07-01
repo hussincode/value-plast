@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Star, Shield, Truck } from 'lucide-react';
+import { Star, Shield, Truck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Hero() {
@@ -10,18 +10,18 @@ export default function Hero() {
 
   const slides = [
     {
-      title: 'Premium Kitchen Storage',
-      subtitle: 'Organize your kitchen with style',
+      title: 'تخزين المطبخ المميز',
+      subtitle: 'نظم مطبخك بأناقة',
       image: 'https://images.pexels.com/photos/6927201/pexels-photo-6927201.jpeg',
     },
     {
-      title: 'Durable Food Containers',
-      subtitle: 'Keep your food fresh longer',
+      title: 'حاويات الطعام المتينة',
+      subtitle: 'احتفظ بطعامك طازجاً لفترة أطول',
       image: 'https://images.pexels.com/photos/6152254/pexels-photo-6152254.jpeg',
     },
     {
-      title: 'Modern Kitchen Tools',
-      subtitle: 'Cook with confidence',
+      title: 'أدوات المطبخ الحديثة',
+      subtitle: 'اطبخ بثقة',
       image: 'https://images.pexels.com/photos/8176590/pexels-photo-8176590.jpeg',
     },
   ];
@@ -69,9 +69,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Welcome to{' '}
+            مرحباً بك في{' '}
             <span className="text-gradient bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
-              ValuePlast
+            ValuePlast
             </span>
           </motion.h1>
           
@@ -81,7 +81,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Discover premium plastic kitchen products that combine durability, style, and functionality for the modern home.
+            اكتشف منتجات المطبخ البلاستيكية المميزة التي تجمع بين المتانة والأناقة والوظائفية للمنزل العصري.
           </motion.p>
 
           <motion.div 
@@ -91,14 +91,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transform hover:scale-105 transition-all">
-              Shop Now
+              تسوق الآن
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="border-white text-blue-600 hover:bg-white hover:text-gray-900 px-8 py-3 rounded-full text-lg font-semibold transform hover:scale-105 transition-all"
             >
-              View Catalog
+              عرض الكتالوج
             </Button>
           </motion.div>
 
@@ -111,47 +111,23 @@ export default function Hero() {
           >
             <div className="flex items-center justify-center space-x-3">
               <Star className="h-6 w-6 text-yellow-400 fill-current" />
-              <span className="text-lg font-medium">4.9/5 Rating</span>
+              <span className="text-lg font-medium">تقييم 4.9/5</span>
             </div>
             <div className="flex items-center justify-center space-x-3">
               <Shield className="h-6 w-6 text-green-400" />
-              <span className="text-lg font-medium">Quality Guarantee</span>
+              <span className="text-lg font-medium">ضمان الجودة</span>
             </div>
             <div className="flex items-center justify-center space-x-3">
               <Truck className="h-6 w-6 text-blue-400" />
-              <span className="text-lg font-medium">Free Shipping</span>
+              <span className="text-lg font-medium">شحن مجاني</span>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <ChevronDown className="h-8 w-8 text-white/70" />
-          </motion.div>
-        </motion.div>
+
       </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? 'bg-white' : 'bg-white/50'
-            }`}
-            onClick={() => setCurrentSlide(index)}
-          />
-        ))}
-      </div>
+
     </section>
   );
 }

@@ -3,29 +3,29 @@ import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from 'luci
 
 export default function Footer() {
   const footerLinks = {
-    'Shop': [
-      { name: 'All Products', href: '/products' },
-      { name: 'Storage Containers', href: '/products/storage' },
-      { name: 'Kitchen Utensils', href: '/products/utensils' },
-      { name: 'Food Prep Tools', href: '/products/prep-tools' },
-      { name: 'Dining Accessories', href: '/products/dining' },
-      { name: 'New Arrivals', href: '/products/new' },
+    'التسوق': [
+      { name: 'جميع المنتجات', href: '/products' },
+      { name: 'حاويات التخزين', href: '/products/storage' },
+      { name: 'أدوات المطبخ', href: '/products/utensils' },
+      { name: 'أدوات تحضير الطعام', href: '/products/prep-tools' },
+      { name: 'ملحقات المائدة', href: '/products/dining' },
+      { name: 'وصل حديثاً', href: '/products/new' },
     ],
-    'Support': [
-      { name: 'Contact Us', href: '/contact' },
-      { name: 'FAQ', href: '/faq' },
-      { name: 'Shipping Info', href: '/shipping' },
-      { name: 'Returns', href: '/returns' },
-      { name: 'Size Guide', href: '/size-guide' },
-      { name: 'Care Instructions', href: '/care' },
+    'الدعم': [
+      { name: 'اتصل بنا', href: '/contact' },
+      { name: 'الأسئلة الشائعة', href: '/faq' },
+      { name: 'معلومات الشحن', href: '/shipping' },
+      { name: 'الإرجاع', href: '/returns' },
+      { name: 'دليل المقاسات', href: '/size-guide' },
+      { name: 'تعليمات العناية', href: '/care' },
     ],
-    'About': [
-      { name: 'Our Story', href: '/about/story' },
-      { name: 'Mission & Values', href: '/about/mission' },
-      { name: 'Sustainability', href: '/about/sustainability' },
-      { name: 'Careers', href: '/about/careers' },
-      { name: 'Press', href: '/about/press' },
-      { name: 'Wholesale', href: '/about/wholesale' },
+    'من نحن': [
+      { name: 'قصتنا', href: '/about/story' },
+      { name: 'مهمتنا وقيمنا', href: '/about/mission' },
+      { name: 'الاستدامة', href: '/about/sustainability' },
+      { name: 'الوظائف', href: '/about/careers' },
+      { name: 'الصحافة', href: '/about/press' },
+      { name: 'البيع بالجملة', href: '/about/wholesale' },
     ],
   };
 
@@ -40,21 +40,21 @@ export default function Footer() {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">V</span>
               </div>
-              <span className="text-3xl font-bold text-gradient font-playfair">ValuePlast</span>
+              <span className="text-3xl font-bold text-gradient font-playfair">Value Plast</span>
             </Link>
             
             <p className="text-gray-300 mb-6 max-w-md">
-              Your trusted partner for premium kitchen plastic products. We combine durability, functionality, and style to enhance your cooking experience.
+              شريكك الموثوق لمنتجات المطبخ البلاستيكية المميزة. نجمع بين المتانة والوظائفية والأناقة لتحسين تجربة الطهي لديك.
             </p>
             
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">123 Kitchen Street, Culinary City, CC 12345</span>
+                <span className="text-gray-300">6 أكتوبر</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+20 1015111112</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400" />
@@ -87,7 +87,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+              <h3 className="text-lg font-semibold mb-4">تابعنا</h3>
               <div className="flex space-x-4">
                 <Link href="#" className="bg-gray-800 p-3 rounded-full hover:bg-blue-600 transition-colors">
                   <Facebook className="h-5 w-5" />
@@ -105,7 +105,7 @@ export default function Footer() {
             </div>
 
             <div className="text-center md:text-right">
-              <h3 className="text-lg font-semibold mb-2">Secure Shopping</h3>
+              <h3 className="text-lg font-semibold mb-2">تسوق آمن</h3>
               <div className="flex space-x-4 justify-center md:justify-end">
                 <img src="https://images.pexels.com/photos/50987/money-card-business-credit-card-50987.jpeg?auto=compress&cs=tinysrgb&w=100&h=60&dpr=1" alt="Payment methods" className="h-8 opacity-70" />
               </div>
@@ -116,14 +116,14 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
           <div className="text-center md:text-left mb-4 md:mb-0">
-            <p>&copy; 2024 ValuePlast. All rights reserved.</p>
+            <p>&copy; 2024 فاليوبلاست. جميع الحقوق محفوظة.</p>
           </div>
           
           <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
-            <Link href="/accessibility" className="hover:text-white transition-colors">Accessibility</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">سياسة الخصوصية</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">شروط الخدمة</Link>
+            <Link href="/cookies" className="hover:text-white transition-colors">سياسة ملفات تعريف الارتباط</Link>
+            <Link href="/accessibility" className="hover:text-white transition-colors">إمكانية الوصول</Link>
           </div>
         </div>
       </div>

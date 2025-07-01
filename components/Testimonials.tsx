@@ -13,24 +13,24 @@ export default function Testimonials() {
   const testimonials = [
     {
       name: 'Sarah Johnson',
-      role: 'Home Chef',
+      role: 'طاهية منزلية',
       image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=1',
       rating: 5,
-      content: 'ValuePlast products have completely transformed my kitchen organization. The quality is exceptional and they look beautiful too!',
+      content: 'منتجات فاليوبلاست غيرت تنظيم مطبخي بالكامل. الجودة استثنائية وتبدو جميلة أيضاً!',
     },
     {
       name: 'Michael Chen',
-      role: 'Restaurant Owner',
+      role: 'صاحب مطعم',
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=1',
       rating: 5,
-      content: 'We use ValuePlast containers in our restaurant. They\'re durable, easy to clean, and maintain food freshness perfectly.',
+      content: 'نستخدم حاويات فاليوبلاست في مطعمنا. إنها متينة وسهلة التنظيف وتحافظ على نضارة الطعام بشكل مثالي.',
     },
     {
       name: 'Emily Rodriguez',
-      role: 'Busy Mom',
+      role: 'أم مشغولة',
       image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=1',
       rating: 5,
-      content: 'As a mom of three, I need kitchen products that can keep up. ValuePlast delivers on durability and style every time.',
+      content: 'كأم لثلاثة أطفال، أحتاج منتجات مطبخ تستطيع مواكبة احتياجاتي. فاليوبلاست تفي بالمتانة والأناقة في كل مرة.',
     },
   ];
 
@@ -45,10 +45,10 @@ export default function Testimonials() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-gray-900">
-            What Our Customers Say
+            ماذا يقول عملاؤنا
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who trust ValuePlast for their kitchen needs
+            انضم إلى آلاف العملاء الراضين الذين يثقون بفاليوبلاست لاحتياجات مطبخهم
           </p>
         </motion.div>
 
@@ -98,19 +98,19 @@ export default function Testimonials() {
         >
           <div>
             <div className="text-3xl font-bold text-blue-600 mb-2">50K+</div>
-            <div className="text-gray-600">Happy Customers</div>
+            <div className="text-gray-600">عميل سعيد</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-blue-600 mb-2">4.9/5</div>
-            <div className="text-gray-600">Average Rating</div>
+            <div className="text-gray-600">متوسط التقييم</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
-            <div className="text-gray-600">Products</div>
+            <div className="text-gray-600">منتج</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-blue-600 mb-2">99%</div>
-            <div className="text-gray-600">Satisfaction Rate</div>
+            <div className="text-gray-600">معدل الرضا</div>
           </div>
         </motion.div>
       </div>

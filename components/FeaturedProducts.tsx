@@ -2,10 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Star, ShoppingCart, Heart } from 'lucide-react';
+import { Star, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCart } from '@/components/CartProvider';
-import { toast } from 'sonner';
 
 export default function FeaturedProducts() {
   const [ref, inView] = useInView({
@@ -13,60 +11,58 @@ export default function FeaturedProducts() {
     threshold: 0.1,
   });
 
-  const { dispatch } = useCart();
-
   const products = [
     {
       id: '1',
-      name: 'Premium Storage Set',
+      name: 'مجموعة التخزين المميزة',
       price: 49.99,
       originalPrice: 79.99,
       rating: 4.9,
       reviews: 124,
       image: '/red bottels.png',
-      category: 'Storage',
-      badge: 'Best Seller',
+      category: 'التخزين',
+      badge: 'الأكثر مبيعاً',
     },
     {
       id: '2',
-      name: 'Chef\'s Utensil Kit',
+      name: 'طقم أدوات الشيف',
       price: 34.99,
       originalPrice: 49.99,
       rating: 4.8,
       reviews: 98,
       image: '/potato.png',
-      category: 'Utensils',
-      badge: 'Sale',
+      category: 'الأدوات',
+      badge: 'تخفيض',
     },
     {
       id: '3',
-      name: 'Food Prep Bowls',
+      name: 'أوعية تحضير الطعام',
       price: 24.99,
       originalPrice: 34.99,
       rating: 4.7,
       reviews: 87,
       image: '/ber.png',
-      category: 'Prep Tools',
-      badge: 'New',
+      category: 'أدوات التحضير',
+      badge: 'جديد',
     },
   ];
 
   const handleAddToCart = (product: any) => {
-    dispatch({ type: 'ADD_TO_CART', payload: product });
-    toast.success(`${product.name} added to cart!`);
+    // Cart functionality removed
+    console.log('Product would be added to cart:', product.name);
   };
 
   const getBadgeColor = (badge: string) => {
     switch (badge.toLowerCase()) {
-      case 'best seller':
+      case 'الأكثر مبيعاً':
         return 'bg-red-500';
-      case 'sale':
+      case 'تخفيض':
         return 'bg-orange-500';
-      case 'new':
+      case 'جديد':
         return 'bg-green-500';
-      case 'premium':
+      case 'مميز':
         return 'bg-purple-500';
-      case 'value':
+      case 'قيمة':
         return 'bg-blue-500';
       default:
         return 'bg-gray-500';
@@ -84,10 +80,10 @@ export default function FeaturedProducts() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-gray-900">
-            Featured Products
+            المنتجات المميزة
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular kitchen essentials, loved by thousands of customers worldwide
+            اكتشف أساسيات المطبخ الأكثر شعبية لدينا، يحبها آلاف العملاء حول العالم
           </p>
         </motion.div>
 
@@ -128,8 +124,7 @@ export default function FeaturedProducts() {
                       onClick={() => handleAddToCart(product)}
                       className="bg-white text-gray-900 hover:bg-gray-100 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
                     >
-                      <ShoppingCart className="mr-2 h-4 w-4" />
-                      Add to Cart
+                      عرض التفاصيل
                     </Button>
                   </div>
                 </div>
@@ -161,7 +156,7 @@ export default function FeaturedProducts() {
                       onClick={() => handleAddToCart(product)}
                       className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
-                      <ShoppingCart className="h-4 w-4" />
+                      عرض
                     </Button>
                   </div>
                 </div>
@@ -177,7 +172,7 @@ export default function FeaturedProducts() {
           className="text-center mt-12"
         >
           <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold">
-            View All Products
+            عرض جميع المنتجات
           </Button>
         </motion.div>
       </div>

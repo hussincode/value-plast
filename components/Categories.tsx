@@ -13,28 +13,28 @@ export default function Categories() {
 
   const categories = [
     {
-      name: 'Storage Containers',
-      description: 'Airtight containers for all your storage needs',
+      name: 'حاويات التخزين',
+      description: 'حاويات محكمة الإغلاق لجميع احتياجات التخزين',
       image: '/pink bottels.png',
-      count: '50+ Products',
+      count: '+50 منتج',
     },
     {
-      name: 'Kitchen Utensils',
-      description: 'Durable utensils for everyday cooking',
+      name: 'أدوات المطبخ',
+      description: 'أدوات متينة للطهي اليومي',
       image: '/potato.png',
-      count: '30+ Products',
+      count: '+30 منتج',
     },
     {
-      name: 'Food Prep Tools',
-      description: 'Make food preparation quick and easy',
+      name: 'أدوات تحضير الطعام',
+      description: 'اجعل تحضير الطعام سريعاً وسهلاً',
       image: '/ber.png',
-      count: '25+ Products',
+      count: '+25 منتج',
     },
     {
-      name: 'Dining Accessories',
-      description: 'Elegant pieces for your dining table',
+      name: 'ملحقات المائدة',
+      description: 'قطع أنيقة لمائدتك',
       image: '/poll.png',
-      count: '40+ Products',
+      count: '+40 منتج',
     },
   ];
 
@@ -49,10 +49,10 @@ export default function Categories() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-gray-900">
-            Shop by Category
+            تسوق حسب الفئة
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Explore our comprehensive collection of kitchen plastic products designed for modern living
+            اكتشف مجموعتنا الشاملة من منتجات المطبخ البلاستيكية المصممة للحياة العصرية
           </p>
         </motion.div>
 
@@ -91,7 +91,7 @@ export default function Categories() {
                     variant="ghost" 
                     className="group-hover:bg-blue-50 group-hover:text-blue-600 p-0 font-semibold"
                   >
-                    Explore Collection
+                    استكشف المجموعة
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>
