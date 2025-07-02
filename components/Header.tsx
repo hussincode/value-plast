@@ -146,14 +146,14 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
-            <nav className="container mx-auto px-4 py-4 space-y-4">
+          <div className="md:hidden bg-white border-t border-gray-200 shadow-lg text-right">
+            <nav className="container mx-auto px-4 py-4 space-y-4 text-right">
               {navItems.map((item) => (
                 item.href ? (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                    className="block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 text-right"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
@@ -162,7 +162,7 @@ const Header = () => {
                   <button
                     key={item.label}
                     onClick={item.onClick}
-                    className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                    className="block w-full text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 text-right"
                   >
                     {item.label}
                   </button>

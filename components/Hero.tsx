@@ -70,6 +70,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             مرحباً بك في{' '}
+            <span className="inline-block md:hidden" style={{ width: '11px' }}></span>
             <span className="text-gradient bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
             ValuePlast
             </span>
@@ -90,13 +91,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transform hover:scale-105 transition-all">
-              تسوق الآن
-            </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="border-white text-blue-600 hover:bg-white hover:text-gray-900 px-8 py-3 rounded-full text-lg font-semibold transform hover:scale-105 transition-all"
+              onClick={() => {
+                const section = document.getElementById('products');
+                if (section) {
+                  section.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               عرض الكتالوج
             </Button>

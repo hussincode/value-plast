@@ -23,7 +23,17 @@ const Newsletter = () => {
     setIsLoading(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await fetch('https://mailthis.to/hussinhesham2009@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          _replyto: email,
+          email: email,
+          message: 'اشتراك جديد في النشرة البريدية من ValuePlast',
+        }),
+      });
       toast.success('شكراً لك على الاشتراك! تحقق من بريدك الإلكتروني للحصول على كود الخصم.');
       setEmail('');
     } catch (error) {
@@ -58,7 +68,7 @@ const Newsletter = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-playfair">
-            ابق على اطلاع مع فاليوبلاست
+            ابق على اطلاع مع ValuePlast
           </h2>
           
           <p className="text-base md:text-lg lg:text-xl mb-8 opacity-90 max-w-2xl mx-auto px-4">
