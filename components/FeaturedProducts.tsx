@@ -6,6 +6,7 @@ import { Star, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function FeaturedProducts() {
   const [ref, inView] = useInView({
@@ -19,8 +20,7 @@ export default function FeaturedProducts() {
   const products = [
     {
       id: 1,
-      name: 'حاوية تخزين الطوابل',
-      description: 'حاوية بلاستيكية متينة لحفظ الطوابل.',
+      name: 'حاوية تخزين التوابل',
       image: '/blue botels.png',
       images: ['/blue botels.png', '/pink 2.png', '/green 2.png'],
       price: 380,
@@ -32,16 +32,19 @@ export default function FeaturedProducts() {
     },
     {
       id: 2,
-      name: 'طبق التسالي',
-      description: 'طبق التسالي للطعام.',
-      image: '/poll.png',
-      images: ['/poll.png'],
-      price: 20,
+      name: 'حاوية تخزين التوابل',
+      image: '/pink bottel.png',
+      images: ['/pink bottel.png', '/green bottel.png', '/blue bottel.png'],
+      price: 260,
+      quantity: 1,
+      rating: 4.9,
+      reviews: 124,
+      category: 'التخزين',
+      badge: 'الأكثر مبيعاً',
     },
     {
       id: 3,
-      name: 'ادوات تحضير الطعام',
-      description: 'ملاعق قياس.',
+      name: 'ادوات تحضير ',
       image: '/ber.png',
       images: ['/ber.png'],
       price: 25,
@@ -53,7 +56,6 @@ export default function FeaturedProducts() {
     {
       id: 4,
       name: 'حافظه البطاطا',
-      description: 'حافظه البطاطا.',
       image: '/potato.png',
       price: 15,
       rating: 4.8,
@@ -63,21 +65,17 @@ export default function FeaturedProducts() {
     },
     {
       id: 5,
-      name: 'حاوية تخزين الطوابل',
-      description: 'حاوية بلاستيكية متينة لحفظ الطوابل.',
-      image: '/pink bottel.png',
-      images: ['/pink bottel.png', '/green bottel.png', '/blue bottel.png'],
-      price: 260,
-      quantity: 1,
-      rating: 4.9,
-      reviews: 124,
-      category: 'التخزين',
-      badge: 'الأكثر مبيعاً',
+      name: 'طبق التسالي',
+      image: '/poll.png',
+      images: ['/poll.png'],
+      price: 20,
+       rating: 4.9,
+       reviews: 124,
+       category: 'الأدوات',
     },
     {
       id: 6,
       name: 'منتج جديد قريباً',
-      description: 'ترقبوا منتجنا الجديد المميز قريباً!',
       image: '/cristal.png',
       images: ['/cristal.png'],
       comingSoon: true,
@@ -115,48 +113,44 @@ export default function FeaturedProducts() {
     <section id="products" className="py-20 bg-white">
       <Dialog open={!!selectedProduct} onOpenChange={() => setSelectedProduct(null)}>
         {selectedProduct && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-            <div className="relative max-w-lg w-full p-6">
-              <div className="absolute inset-0 w-full h-full bg-white/30 backdrop-blur-lg border border-white/30 rounded-3xl" style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)' }} />
-              <div className="relative z-10 bg-transparent rounded-lg">
-                <button onClick={() => { setSelectedProduct(null); setCurrentImage(0); }} className="absolute top-2 left-2 text-gray-500 hover:text-red-500 text-2xl">×</button>
-                <h2 className="text-2xl font-bold mb-4 text-center">{selectedProduct.name}</h2>
-                <div className="flex flex-col items-center gap-4">
-                  {/* Main image with switch buttons */}
-                  <div className="flex items-center justify-center mb-2 gap-6">
-                    <button
-                      onClick={() => setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
-                      className="backdrop-blur-lg bg-white/30 border border-white/40 hover:bg-blue-100 text-blue-700 rounded-full p-5 shadow-lg text-3xl font-bold transition-all duration-200"
-                      aria-label="Previous image"
-                    >
-                      &#8594;
-                    </button>
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
+            <div className="relative w-[400px] max-w-full p-4 bg-white/60 backdrop-blur-lg border border-white/30 rounded-3xl shadow-2xl flex flex-col items-center">
+              <button onClick={() => { setSelectedProduct(null); setCurrentImage(0); }} className="absolute top-2 left-2 text-gray-500 hover:text-red-500 text-2xl">×</button>
+              <h2 className="text-2xl font-bold mb-4 text-center">{selectedProduct.name}</h2>
+              <div className="flex flex-col items-center gap-4 w-full">
+                {/* Main image with switch buttons */}
+                <div className="flex items-center justify-center mb-2 gap-4 w-full">
+                  <button
+                    onClick={() => setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
+                    className="backdrop-blur-lg bg-white/30 border border-white/40 hover:bg-blue-100 text-blue-700 rounded-full p-4 shadow-lg text-3xl font-bold transition-all duration-200"
+                    aria-label="Previous image"
+                  >
+                    &#8594;
+                  </button>
+                  <img
+                    src={images[currentImage]}
+                    alt={selectedProduct.name}
+                    className="w-56 h-56 object-cover rounded border"
+                  />
+                  <button
+                    onClick={() => setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
+                    className="backdrop-blur-lg bg-white/30 border border-white/40 hover:bg-blue-100 text-blue-700 rounded-full p-4 shadow-lg text-3xl font-bold transition-all duration-200"
+                    aria-label="Next image"
+                  >
+                    &#8592;
+                  </button>
+                </div>
+                {/* Thumbnails */}
+                <div className="flex gap-2 justify-center w-full">
+                  {images.map((img: string, idx: number) => (
                     <img
-                      src={images[currentImage]}
-                      alt={selectedProduct.name}
-                      className="w-64 h-64 object-cover rounded"
+                      key={idx}
+                      src={img}
+                      alt={`صورة إضافية ${idx + 1}`}
+                      className={`w-20 h-20 object-cover rounded border cursor-pointer transition-all duration-200 ${currentImage === idx ? 'border-blue-500 scale-105' : ''}`}
+                      onClick={() => setCurrentImage(idx)}
                     />
-                    <button
-                      onClick={() => setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
-                      className="backdrop-blur-lg bg-white/30 border border-white/40 hover:bg-blue-100 text-blue-700 rounded-full p-5 shadow-lg text-3xl font-bold transition-all duration-200"
-                      aria-label="Next image"
-                    >
-                      &#8592;
-                    </button>
-                  </div>
-                  {/* Thumbnails */}
-                  <div className="flex gap-2 justify-center">
-                    {images.map((img: string, idx: number) => (
-                      <img
-                        key={idx}
-                        src={img}
-                        alt={`صورة إضافية ${idx + 1}`}
-                        className={`w-16 h-16 object-cover rounded border cursor-pointer ${currentImage === idx ? 'border-blue-500' : ''}`}
-                        onClick={() => setCurrentImage(idx)}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 mt-2 text-center">{selectedProduct.description}</p>
+                  ))}
                 </div>
               </div>
             </div>
@@ -200,26 +194,15 @@ export default function FeaturedProducts() {
                   />
                   {/* Badge */}
                   {product.badge && (
-                    <div className={`absolute top-4 left-4 ${getBadgeColor(product.badge)} text-white px-3 py-1 rounded-full text-sm font-medium`}>
+                    <div className={`absolute top-0 left-0 w-full ${getBadgeColor(product.badge)} text-white py-2 rounded-t-2xl text-center text-base font-bold`} style={{borderBottomLeftRadius: 0, borderBottomRightRadius: 0}}>
                       {product.badge}
                     </div>
                   )}
-                  {/* Wishlist Button */}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-4 right-4 bg-white/90 hover:bg-white shadow-md"
-                  >
-                    <Heart className="h-5 w-5 text-gray-600 hover:text-red-500 transition-colors" />
-                  </Button>
                 </div>
                 <div className="p-6 flex flex-col items-center">
                   <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
                     {product.name}
-                  </h3>
-                  {product.description && (
-                    <p className="text-gray-600 text-center mb-2">{product.description}</p>
-                  )}
+                  </h3> 
                   {product.price && (
                     <span className="text-2xl font-bold text-blue-600">{product.price} جنيه</span>
                   )}
@@ -240,7 +223,15 @@ export default function FeaturedProducts() {
                   )}
                   {/* Coming Soon Button */}
                   {product.comingSoon && (
-                    <button className="mt-4 px-4 py-2 bg-yellow-400 text-yellow-900 font-bold rounded hover:bg-yellow-500 transition">أشعرني عند التوفر</button>
+                    <button
+                      className="mt-4 px-4 py-2 bg-yellow-400 text-yellow-900 font-bold rounded hover:bg-yellow-500 transition"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toast.success('سيتم إعلامك عند توفر المنتج!');
+                      }}
+                    >
+                      أشعرني عند التوفر
+                    </button>
                   )}
                 </div>
               </div>

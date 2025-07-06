@@ -69,7 +69,6 @@ const Header = () => {
 
   const navItems = [
     { href: '#home', label: 'الرئيسية' },
-    { href: '#categories', label: 'الفئات' },
     { href: '#products', label: 'المنتجات' },
     { onClick: scrollToNewsletter, label: 'تواصل معنا' },
     { onClick: scrollToFooter, label: 'من نحن' },

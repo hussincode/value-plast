@@ -113,17 +113,28 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <div className="flex items-center justify-center space-x-3">
-              <Star className="h-6 w-6 text-yellow-400 fill-current" />
-              <span className="text-lg font-medium">تقييم 4.9/5</span>
+            <div className="flex items-center justify-center space-x-2">
+              {/* Star rating bar with half-star */}
+              {[1,2,3,4].map((n) => (
+                <svg key={n} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#FFC107" className="w-6 h-6" style={{transform: 'scaleX(-1)'}}>
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.38 2.455a1 1 0 00-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.54 1.118l-3.38-2.454a1 1 0 00-1.175 0l-3.38 2.454c-.784.57-1.838-.196-1.54-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.05 9.394c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.967z" />
+                </svg>
+              )).reverse()}
+              {/* Half star */}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className="w-6 h-6" style={{transform: 'scaleX(-1)'}}>
+                <defs>
+                  <linearGradient id="half">
+                    <stop offset="50%" stopColor="#FFC107" />
+                    <stop offset="50%" stopColor="#E5E7EB" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#half)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.38 2.455a1 1 0 00-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.54 1.118l-3.38-2.454a1 1 0 00-1.175 0l-3.38 2.454c-.784.57-1.838-.196-1.54-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.05 9.394c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.967z" />
+              </svg>
             </div>
+            <span className="text-lg font-medium ml-2">تقييم 4.9/5</span>
             <div className="flex items-center justify-center space-x-3">
               <Shield className="h-6 w-6 text-green-400" />
               <span className="text-lg font-medium">ضمان الجودة</span>
-            </div>
-            <div className="flex items-center justify-center space-x-3">
-              <Truck className="h-6 w-6 text-blue-400" />
-              <span className="text-lg font-medium">شحن مجاني</span>
             </div>
           </motion.div>
         </motion.div>
